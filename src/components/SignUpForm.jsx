@@ -6,7 +6,7 @@ const SignUpForm = ({ switchToLogin }) => {
     const fullname = e.target.fullname.value;
     const username = e.target.username.value;
     const password = e.target.password.value;
-    console.log({ fullname, username, password }); // Replace with backend logic.
+    console.log({ fullname, username, password }); 
   };
 
   return (

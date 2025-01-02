@@ -1,0 +1,175 @@
+/* General Gallery Styles */
+.gallery {
+  width: 1200px;
+  margin: 0;
+  margin-left: 280px;
+  padding: 20px;
+}
+
+.gallery-container {
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.add-image {
+  padding: 10px 20px;
+  background-color: #4a5568;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.add-image:hover {
+  background-color: #41416d;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.image-item {
+  background-color: #2d3748;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  width: 350px; 
+  height: 300px; 
+}
+
+.image-item img {
+  width: 100%; 
+  height: 80%; 
+  object-fit: cover; /* Crop the image to fit without distorting */
+  border-radius: 8px; /* Optional: rounded corners for the image */
+}
+
+.image-item p {
+  margin-top: 10px;
+  color: #ecf0f1;
+  font-size: 0.9rem; /* Optional: Styling for description text */
+  text-align: center;
+  margin-bottom: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Handle long descriptions gracefully */
+}
+
+/* Add Image Modal Styles */
+.modalAddImage .modal-content-image .modal-body-image input[type="file"] {
+  max-width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+/* Modal Styles */
+.modalAddImage {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modalAddImage.show {
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modalAddImage.hide {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.modalAddImage .modal-content-image {
+  background-color: #2d3748;
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modalAddImage .modal-content-image .modal-header-image {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modalAddImage .modal-content-image .modal-header-image h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #ecf0f1;
+}
+
+.modalAddImage .modal-content-image .modal-header-image .close-btn {
+  background: none;
+  border: none;
+  color: #ecf0f1;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modalAddImage .modal-content-image .modal-body-image label {
+  display: block;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #dadde2;
+  margin-bottom: 5px;
+}
+
+.modalAddImage .modal-content-image .modal-body-image input,
+.modalAddImage .modal-content-image .modal-body-image select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #374151;
+  font-size: 14px;
+  color: #fff;
+}
+
+.modalAddImage .modal-content-image .modal-footer-image {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modalAddImage .modal-content-image .modal-footer-image button {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #374151;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.modalAddImage .modal-content-image .modal-footer-image button:hover {
+  background-color: #41416d;
+}
+
+.modalAddImage .modal-content-image .modal-footer-image button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}

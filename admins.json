@@ -1,0 +1,17 @@
+[
+  {
+    "id": "Admin1",
+    "name": "Admin1",
+    "avatar": "path_to_avatar1.jpg"
+  },
+  {
+    "id": "Admin2",
+    "name": "Admin2",
+    "avatar": "path_to_avatar2.jpg"
+  },
+  {
+    "id": "Admin3",
+    "name": "Admin3",
+    "avatar": "path_to_avatar3.jpg"
+  }
+]

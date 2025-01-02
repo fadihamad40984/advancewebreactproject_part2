@@ -6,7 +6,7 @@ const LoginForm = ({ switchToSignUp }) => {
     const username = e.target.username.value;
     const password = e.target.password.value;
     localStorage.setItem('username', username);
-    window.location.href = '/main'; 
+    window.location.href = '/overview'; 
   };
 
   return (

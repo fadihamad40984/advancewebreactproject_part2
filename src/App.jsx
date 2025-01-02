@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignUpForm';
 import Dashboard from './components/Dashboard';
@@ -8,56 +8,40 @@ import VillageManagement from './Pages/VillageManagement';
 import Chat from './Pages/Chat';
 import Gallery from './Pages/Gallery';
 import './styles/authentication.css';
+import './styles/main.css';
+
 
 const App = () => {
-  const [isLogin, setIsLogin] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const AppContent = () => {
+    const navigate = useNavigate();
 
-  const switchToSignUp = () => setIsLogin(false);
-  const switchToLogin = () => setIsLogin(true);
+    const switchToSignUp = () => navigate('/signup');
+    const switchToLogin = () => navigate('/login');
 
-  const loginHandler = () => {
-    setIsAuthenticated(true);  
-  };
-
-  const logoutHandler = () => {
-    setIsAuthenticated(false); 
-  };
-
-  return (
-    <Router>
+    return (
       <Routes>
-       
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route
           path="/login"
-          element={<LoginForm switchToSignUp={switchToSignUp} loginHandler={loginHandler} />}
+          element={<LoginForm switchToSignUp={switchToSignUp} />}
         />
         <Route
           path="/signup"
           element={<SignUpForm switchToLogin={switchToLogin} />}
         />
-       
-        <Route
-          path="/"
-          element={isAuthenticated ? <Navigate to="/overview" /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/overview"
-          element={isAuthenticated ? <Dashboard><Overview /></Dashboard> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/village-management"
-          element={isAuthenticated ? <Dashboard><VillageManagement /></Dashboard> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/chat"
-          element={isAuthenticated ? <Dashboard><Chat /></Dashboard> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/gallery"
-          element={isAuthenticated ? <Dashboard><Gallery /></Dashboard> : <Navigate to="/login" />}
-        />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/overview" element={<Overview />} />
+        <Route path="/village-management" element={<VillageManagement />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
+    );
+  };
+
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 };

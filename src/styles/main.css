@@ -1,0 +1,384 @@
+
+
+
+
+.chatWithAdmin-pane {
+  width: 80%;
+  margin: 0;
+}
+.chat-container {
+  background-color: #1a202c;
+  width: 80%;
+  width: 100%;
+  margin: 0;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.chat-container h2 {
+  display: flex;
+}
+h2 {
+  text-align: center;
+}
+.search-box {
+  width: 1150px;
+  border-radius: 8px;
+  padding: 1rem;
+  flex: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+}
+.admin-chat-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+.admin-container {
+  flex: 1;
+  background-color: #1f2937;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.chat-box-container {
+  flex: 1;
+  background-color: #1f2937;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+h3 {
+  margin-top: 0;
+}
+.admin-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-left: 0;
+}
+.admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 0;
+}
+.admin-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  margin-left: 0;
+}
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+}
+.chat-header {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0;
+  padding-bottom: 0.5rem;
+}
+.chat-messages {
+  height: 300px;
+  width: 1100px;
+  overflow-y: auto;
+  margin: 0;
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 0.5px solid #ccc;
+}
+.chat-input {
+  display: block;
+  gap: 0.5rem;
+  flex: 1;
+}
+.chat-input input {
+  width: 1110px;
+  height: 50px;
+  padding-left: 5px;
+  padding-bottom: 25px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+}
+.chat-input input::placeholder {
+  font-size: 0.7rem;
+  color: #888;
+  text-align: left;
+}
+.chat-input button {
+  margin-top: 10px;
+  width: 50px;
+  height: 30px;
+  border: none;
+  background-color: #1e90ff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.chat-input button:hover {
+  background-color: #0078d7;
+}
+.gallary-pane {
+  width: 80%;
+  margin: 0;
+}
+.gallary-container {
+  width: 100%;
+  margin: 10px;
+}
+.add-image {
+  padding: 10px 20px;
+  background-color: #4a5568;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.add-image:hover {
+  background-color: #41416d;
+}
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.image-box {
+  background-color: #2d3748;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  width: 89%;
+  height: 150px;
+}
+.image-box p {
+  margin-top: 10px;
+}
+.image-placeholder {
+  width: 100%;
+  height: 80%;
+  background-color: #cccccc;
+  margin: 0 auto;
+  border-radius: 10px;
+  color: #adadad;
+  font-size: x-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modalAddImage {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalAddImage.show {
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
+}
+.modalAddImage.hide {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+
+.modalAddImage .modal-content-image {
+  background-color: #2d3748;
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.modalAddImage .modal-content-image .modal-header-image {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.modalAddImage .modal-content-image .modal-header-image h2 {
+  margin: 0;
+  font-size: 18px;
+}
+.modalAddImage .modal-content-image .modal-header-image .close-btn {
+  background: none;
+  border: none;
+  color: #ecf0f1;
+  font-size: 20px;
+  cursor: pointer;
+}
+.modalAddImage .modal-content-image .modal-body-image label {
+  text-align: left;
+  font-size: 0.9rem;
+  color: #dadde2;
+}
+.modalAddImage .modal-content-image .modal-body-image input {
+  width: 95%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #374151;
+  font-size: 14px;
+}
+.modalAddImage .modal-content-image .modal-body-image select {
+  width: 95%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #374151;
+  font-size: 14px;
+}
+.modalAddImage .modal-content-image .modal-footer-image {
+  display: flex;
+  justify-content: flex-end;
+}
+.modalAddImage .modal-content-image .modal-footer-image button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #374151;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+}
+@media only screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .dashboard {
+    flex-direction: column;
+  }
+  .dashboard .sidebar .admin-info .avatar {
+    margin: 0 auto;
+  }
+  .dashboard .sidebar .admin-info .logout {
+    text-align: center;
+  }
+  .dashboard .main-content {
+    padding: 10px;
+  }
+  .dashboard .main-content .overview h2 {
+    margin-right: 0;
+    text-align: center;
+  }
+  .dashboard .main-content .overview #map {
+    margin-left: 50px;
+    width: 70%;
+    height: 200px;
+    z-index: 100;
+  }
+  .dashboard .main-content .overview .stats {
+    flex-direction: column;
+  }
+  .dashboard .main-content .overview .stats div {
+    margin-bottom: 10px;
+    text-align: center;
+    width: 70%;
+    margin-left: 50px;
+    padding: 15px;
+  }
+  .dashboard .main-content .charts {
+    flex-direction: column;
+  }
+  .dashboard .main-content .charts .chart-container {
+    margin-bottom: 10px;
+    width: 70%;
+    margin-left: 50px;
+  }
+  .dashboard .main-content .bar-chart {
+    width: 66%;
+    margin-left: 50px;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: 999;
+  }
+  .sidebar ul li {
+    text-align: center;
+    padding: 10px 0;
+  }
+  .admin-info {
+    text-align: center;
+  }
+  .villageManagement {
+    margin-left: 50px;
+    margin-top: 10px;
+  }
+  .add-village-btn {
+    position: relative;
+    right: -79%;
+    font-size: 10px;
+  }
+  .village-list .search-bar {
+    flex-direction: column;
+  }
+  .village-list .search-bar input {
+    margin-bottom: 10px;
+  }
+  .village-list .table .header {
+    flex-direction: row;
+    font-size: 10px;
+  }
+  .village-list .table .header .pagination {
+    justify-content: center;
+    font-size: 10px;
+  }
+  .village-list .table .row {
+    flex-direction: row;
+    text-align: center;
+  }
+  .chat-container {
+    width: 100%;
+    margin-left: 90px;
+  }
+  .chat-container h2 {
+    font-size: 18px;
+  }
+  .chat-container .search-box {
+    width: 100%;
+  }
+  .chat-container .admin-container {
+    width: 100%;
+  }
+  .chat-container .chat-box-container {
+    width: 100%;
+  }
+  .chat-container .chat-messages {
+    width: 100%;
+  }
+  .chat-container .chat-input input {
+    width: 100%;
+  }
+  .add-image {
+    position: relative;
+    right: -100%;
+    margin-right: 10px;
+  }
+}

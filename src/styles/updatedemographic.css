@@ -1,0 +1,104 @@
+.modalDemographic {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: hidden; /* Ensure the modal is not visible when it's hidden */
+}
+
+.modalDemographic.show {
+  opacity: 1;
+  transform: scale(1);
+  visibility: visible; /* Make sure it's visible when "show" class is added */
+}
+
+.modalDemographic.hide {
+  opacity: 0;
+  transform: scale(0.95);
+  visibility: hidden; /* Ensure it's hidden when "hide" class is applied */
+}
+
+.modalDemographic .modal-content-demographic {
+  background-color: #2d3748;
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modalDemographic .modal-content-demographic .modal-header-demographic {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modalDemographic .modal-content-demographic .modal-header-demographic h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.modalDemographic .modal-content-demographic .modal-header-demographic .close-btn {
+  background: none;
+  border: none;
+  color: #ecf0f1;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modalDemographic .modal-content-demographic .modal-body-demographic label {
+  text-align: left;
+  font-size: 0.9rem;
+  color: #dadde2;
+}
+
+.modalDemographic .modal-content-demographic .modal-body-demographic input {
+  color: #fff;
+
+  width: 95%;
+  padding: 10px;
+  margin: 10px 0 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #374151;
+  font-size: 14px;
+}
+
+.modalDemographic .modal-content-demographic .modal-body-demographic input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.modalDemographic .modal-content-demographic .modal-footer-demographic {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modalDemographic .modal-content-demographic .modal-footer-demographic button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #374151;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modalDemographic .modal-content-demographic .modal-footer-demographic button:hover {
+  background-color: #2c3e50;
+}

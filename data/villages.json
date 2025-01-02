@@ -1,0 +1,197 @@
+[
+  {
+    "villageId": 1,
+    "villageName": "Jabalia",
+    "region": "Gaza Strip",
+    "landArea": 10,
+    "latitude": 31.9522,
+    "longitude": 35.2034,
+    "tags": "undefined",
+    "demographic": {
+      "populationSize": 100000,
+      "ageDistribution": "0-14: 30%, 15-64: 60%, 65+: 10%",
+      "genderRatio": "Male: 51%, Female: 49%",
+      "populationRate": 2.5
+    }
+  },
+  {
+    "villageId": 2,
+    "villageName": "Beit Lahia",
+    "region": "Gaza Strip",
+    "landArea": 15,
+    "latitude": 31.9876,
+    "longitude": 35.2334,
+    "tags": "undefined",
+    "demographic": {
+      "populationSize": 120000,
+      "ageDistribution": "0-14: 28%, 15-64: 62%, 65+: 10%",
+      "genderRatio": "Male: 52%, Female: 48%",
+      "populationRate": 2.8
+    }
+  },
+  {
+    "villageId": 3,
+    "villageName": "Quds",
+    "region": "West Bank",
+    "landArea": 10,
+    "latitude": 32.1104,
+    "longitude": 35.2389,
+    "tags": "undefined",
+    "demographic": {
+      "populationSize": 80000,
+      "ageDistribution": "0-14: 32%, 15-64: 58%, 65+: 10%",
+      "genderRatio": "Male: 50%, Female: 50%",
+      "populationRate": 1.5
+    }
+  },
+  {
+    "villageId": 4,
+    "villageName": "Shejaiya",
+    "region": "Gaza Strip",
+    "landArea": 20,
+    "latitude": 31.9511,
+    "longitude": 35.2098,
+    "tags": "undefined",
+    "demographic": {
+      "populationSize": 90000,
+      "ageDistribution": "0-14: 29%, 15-64: 61%, 65+: 10%",
+      "genderRatio": "Male: 53%, Female: 47%",
+      "populationRate": 3
+    }
+  },
+  {
+    "villageId": 5,
+    "villageName": "Hebron",
+    "region": "West Bank",
+    "landArea": 30,
+    "latitude": 31.5291,
+    "longitude": 35.0914,
+    "tags": "undefined",
+    "demographic": {
+      "populationSize": 150000,
+      "ageDistribution": "0-14: 30%, 15-64: 60%, 65+: 10%",
+      "genderRatio": "Male: 51%, Female: 49%",
+      "populationRate": 1.8
+    }
+  },
+  {
+    "villageId": 6,
+    "villageName": "Rafah",
+    "region": "Gaza Strip",
+    "landArea": 22,
+    "latitude": 31.3002,
+    "longitude": 34.7553,
+    "tags": "undefined",
+    "demographic": {
+      "populationSize": 110000,
+      "ageDistribution": "0-14: 31%, 15-64: 59%, 65+: 10%",
+      "genderRatio": "Male: 50%, Female: 50%",
+      "populationRate": 2.2
+    }
+  },
+  {
+    "villageId": 7,
+    "villageName": "Nablus",
+    "region": "West Bank",
+    "landArea": 24,
+    "latitude": 32.2211,
+    "longitude": 35.2548,
+    "tags": "undefined",
+    "demographic": {
+      "populationSize": 160000,
+      "ageDistribution": "0-14: 33%, 15-64: 57%, 65+: 10%",
+      "genderRatio": "Male: 50%, Female: 50%",
+      "populationRate": 1.6
+    }
+  },
+  {
+    "villageId": 8,
+    "villageName": "Bethlehem",
+    "region": "West Bank",
+    "landArea": 14,
+    "latitude": 31.7054,
+    "longitude": 35.2024,
+    "tags": "undefined",
+    "demographic": {
+      "populationSize": 130000,
+      "ageDistribution": "0-14: 35%, 15-64: 55%, 65+: 10%",
+      "genderRatio": "Male: 52%, Female: 48%",
+      "populationRate": 1.9
+    }
+  },
+  {
+    "villageId": 9,
+    "villageName": "Khan Younis",
+    "region": "Gaza Strip",
+    "landArea": 12,
+    "latitude": 31.3545,
+    "longitude": 34.2976,
+    "tags": "undefined",
+    "demographic": {
+      "populationSize": 140000,
+      "ageDistribution": "0-14: 30%, 15-64: 60%, 65+: 10%",
+      "genderRatio": "Male: 49%, Female: 51%",
+      "populationRate": 2.3
+    }
+  },
+  {
+    "villageId": 10,
+    "villageName": "Tulkarm",
+    "region": "West Bank",
+    "landArea": 17,
+    "latitude": 32.2833,
+    "longitude": 35.0342,
+    "tags": "undefined",
+    "demographic": {
+      "populationSize": 100000,
+      "ageDistribution": "0-14: 34%, 15-64: 56%, 65+: 10%",
+      "genderRatio": "Male: 50%, Female: 50%",
+      "populationRate": 1.7
+    }
+  },
+  {
+    "villageId": 20,
+    "villageName": "Tell",
+    "region": "Nablus",
+    "landArea": 121,
+    "latitude": 22.4,
+    "longitude": -14.5,
+    "tags": "agriculture, rural",
+    "demographic": {
+      "populationSize": 100000,
+      "ageDistribution": "0-14: 20%, 15-64: 60%, 65+: 20%",
+      "genderRatio": "Male: 51%, Female: 49%",
+      "populationRate": 2.5
+    }
+  },
+  {
+    "villageId": 21,
+    "villageName": "Beta",
+    "region": "nablus",
+    "landArea": 120,
+    "latitude": -4,
+    "longitude": -6,
+    "tags": "rural",
+    "demographic": {
+      "populationSize": 100000,
+      "ageDistribution": "0-14: 20%, 15-64: 60%, 65+: 20%",
+      "genderRatio": "Male: 51%, Female: 49%",
+      "populationRate": 2.6
+    }
+  },
+  {
+    "villageId": 22,
+    "villageName": "Sarra",
+    "region": "nablus",
+    "landArea": 12,
+    "latitude": -1.1,
+    "longitude": 1.2,
+    "tags": "rurak",
+    "demographic": {
+      "populationSize": null,
+      "ageDistribution": "0-14: NaN%, 15-64: NaN%, 65+: NaN%",
+      "genderRatio": "Male: NaN%, Female: NaN%",
+      "populationRate": null
+    }
+  }
+]
