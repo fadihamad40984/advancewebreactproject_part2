@@ -1,12 +1,40 @@
-import React from 'react';
+import React from "react";
+import { useMutation, gql } from "@apollo/client";
+import Swal from "sweetalert2";
+
+const ADD_USER = gql`
+  mutation addUser($input: userInput!) {
+    addUser(input: $input)
+  }
+`;
 
 const SignUpForm = ({ switchToLogin }) => {
-  const handleSignUp = (e) => {
+  const [addUserMutation, { loading, error }] = useMutation(ADD_USER);
+
+  const handleSignUp = async (e) => {
     e.preventDefault();
-    const fullname = e.target.fullname.value;
-    const username = e.target.username.value;
+    const name = e.target.fullname.value;
+    const user_name = e.target.username.value;
     const password = e.target.password.value;
-    console.log({ fullname, username, password }); 
+
+    const input = { name, user_name, password };
+
+    try {
+      await addUserMutation({ variables: { input } });
+      Swal.fire({
+        title: "Success!",
+        text: "Registered successfully!",
+        icon: "success",
+        confirmButtonText: "Close",
+      });
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: err.message || "Failed to Register",
+      });
+      console.error("Error adding User:", err);
+    }
   };
 
   return (
@@ -41,10 +69,12 @@ const SignUpForm = ({ switchToLogin }) => {
             required
           />
 
-          <button type="submit">Sign Up</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Signing Up..." : "Sign Up"}
+          </button>
         </form>
         <p>
-          Already have an account?{' '}
+          Already have an account?{" "}
           <a href="#" onClick={switchToLogin}>
             Login
           </a>

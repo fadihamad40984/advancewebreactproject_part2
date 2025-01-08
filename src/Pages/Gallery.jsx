@@ -1,107 +1,183 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/gallery.css"; 
 import Dashboard from "../components/Dashboard";
+import { useMutation } from "@apollo/client";
+import { gql } from "graphql-tag";
+import Swal from "sweetalert2";
+import initialImages from "/data/gallery.json"; 
+
+const ADD_IMAGE = gql`
+  mutation addImage($input: ImageInput!) {
+    addImage(input: $input)
+  }
+`;
 
 const Gallery = () => {
-  const [images, setImages] = useState([]); // To store the gallery images
-  const [modalVisible, setModalVisible] = useState(false); // To toggle the modal visibility
-  const [newImage, setNewImage] = useState(null); // To store the new image file
-  const [description, setDescription] = useState(""); // To store the image description
+  const [images, setImages] = useState([]); // State to hold images
+  const [modalVisible, setModalVisible] = useState(false);
+  const [newImage, setNewImage] = useState(null);
+  const [description, setDescription] = useState("");
+  const [user, setUser] = useState(null);
+  const [addImageMutation, { loading, error }] = useMutation(ADD_IMAGE);
 
-  // Handle opening the modal
+  useEffect(() => {
+    setImages(initialImages);
+  }, []);
+
   const openModal = () => {
     setModalVisible(true);
   };
 
-  // Handle closing the modal
   const closeModal = () => {
     setModalVisible(false);
   };
 
-  // Handle image upload
   const handleImageUpload = (event) => {
-    setNewImage(event.target.files[0]);
+    const file = event.target.files[0];
+    if (file) {
+      const imagePath = "/images/" + file.name;
+      setNewImage(imagePath);
+      console.log("File name saved:", imagePath);
+    }
   };
 
-  // Handle image description input
   const handleDescriptionChange = (event) => {
     setDescription(event.target.value);
   };
 
-  // Handle adding a new image
-  const addImage = () => {
-    if (newImage && description) {
-      const newImageData = {
-        image: URL.createObjectURL(newImage), // Create a URL for the image
-        description: description,
-      };
+  const addImage = async (e) => {
+    e.preventDefault();
 
-      // Update the gallery with the new image
+    if (!newImage || !description) {
+      Swal.fire({
+        icon: "warning",
+        title: "Missing Fields",
+        text: "Please provide both an image and a description.",
+      });
+      return;
+    }
+
+    const newImageData = {
+      imagePath: newImage,
+      imageDescription: description,
+    };
+
+    try {
+      await addImageMutation({ variables: { input: newImageData } });
+      Swal.fire({
+        title: "Success!",
+        text: "Image added successfully!",
+        icon: "success",
+        confirmButtonText: "Close",
+      });
+
       setImages([...images, newImageData]);
-      setModalVisible(false); // Close the modal
-      setNewImage(null); // Clear the input
-      setDescription(""); // Clear the description
+      setNewImage(null);
+      setDescription("");
+      closeModal();
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Failed to add image",
+      });
+      console.error("Error adding image:", err);
     }
   };
 
-  return (
-    <Dashboard>
-    <div>
+
+  useEffect(() => {
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+  }, []);
   
-      <div className="gallery">
-        <div className="gallery-container">
-          <button className="add-image" onClick={openModal}>
-            Add New Image
-          </button>
-
-          <div className="image-grid">
-            {images.map((img, index) => (
-              <div key={index} className="image-item">
-                <img src={img.image} alt={`Image ${index + 1}`} />
-                <p>{img.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+  if (!user) {
+    return (
+      <div>
+        <h2>Loading...</h2>
       </div>
-
-      {modalVisible && (
-        <div className="modalAddImage">
-          <div className="modal-content-image">
-            <div className="modal-header-image">
-              <h2>Add Image</h2>
-              <button className="close-btn" onClick={closeModal}>
-                &times;
-              </button>
-            </div>
-            <div className="modal-body-image">
-              <label htmlFor="uploadImageAdd1">Upload Image:</label>
-              <input
-                type="file"
-                id="uploadImageAdd1"
-                accept="image/*"
-                onChange={handleImageUpload}
-                required
-              />
-
-              <label htmlFor="description">Description:</label>
-              <input
-                type="text"
-                id="description"
-                value={description}
-                onChange={handleDescriptionChange}
-                required
-              />
-            </div>
-            <div className="modal-footer-image">
-              <button onClick={addImage}>Add Image</button>
-            </div>
-          </div>
-        </div>
-      )}
+    );
+  }
+  
+  if (user.role === "user") {
+    return (
+      <Dashboard>  
+      <div>
+      <h2>Unauthorized Access</h2>
+      <p>You do not have the necessary permissions to access this page.</p>
     </div>
     </Dashboard>
+
+    );
+  }
+
+
+  else{
+
+  
+
+  
+
+  return (
+    <Dashboard>
+      <div>
+        <div className="gallery">
+          <div className="gallery-container">
+            <button className="add-image" onClick={openModal}>
+              Add New Image
+            </button>
+
+            <div className="image-grid">
+              {images.map((img, index) => (
+                <div key={index} className="image-item">
+                  <img src={img.image_path} alt={`Image ${index + 1}`} />
+                  <p>{img.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {modalVisible && (
+          <div className="modalAddImage">
+            <div className="modal-content-image">
+              <div className="modal-header-image">
+                <h2>Add Image</h2>
+                <button className="close-btn" onClick={closeModal}>
+                  &times;
+                </button>
+              </div>
+              <div className="modal-body-image">
+                <label htmlFor="uploadImageAdd1">Upload Image:</label>
+                <input
+                  type="file"
+                  id="uploadImageAdd1"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  required
+                />
+
+                <label htmlFor="description">Description:</label>
+                <input
+                  type="text"
+                  id="description"
+                  value={description}
+                  onChange={handleDescriptionChange}
+                  required
+                />
+              </div>
+              <div className="modal-footer-image">
+                <button onClick={addImage}>Add Image</button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </Dashboard>
   );
+}
 };
 
 export default Gallery;

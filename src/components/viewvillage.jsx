@@ -30,7 +30,7 @@ const Popup = ({ isVisible, onClose, village }) => {
       <p><strong>Longitude:</strong> {village.longitude}</p>
       <p><strong>Tags:</strong> {village.tags}</p>
       <img
-        src={village.image || "https://placehold.co/100*100"} 
+        src={village.image_path || "https://placehold.co/100*100"} 
         alt={`Image of ${village.villageName}`}
         id="villageImageView"
       />

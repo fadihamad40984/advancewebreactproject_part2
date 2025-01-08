@@ -1,4 +1,3 @@
-/* General Gallery Styles */
 .gallery {
   width: 1200px;
   margin: 0;
@@ -50,29 +49,27 @@
 .image-item img {
   width: 100%; 
   height: 80%; 
-  object-fit: cover; /* Crop the image to fit without distorting */
-  border-radius: 8px; /* Optional: rounded corners for the image */
+  object-fit: cover; 
+  border-radius: 8px; 
 }
 
 .image-item p {
   margin-top: 10px;
   color: #ecf0f1;
-  font-size: 0.9rem; /* Optional: Styling for description text */
+  font-size: 0.9rem;
   text-align: center;
   margin-bottom: 0;
   max-width: 100%;
   overflow: hidden;
-  text-overflow: ellipsis; /* Handle long descriptions gracefully */
+  text-overflow: ellipsis; 
 }
 
-/* Add Image Modal Styles */
 .modalAddImage .modal-content-image .modal-body-image input[type="file"] {
   max-width: 100%;
   padding: 10px;
   margin-bottom: 15px;
 }
 
-/* Modal Styles */
 .modalAddImage {
   display: none;
   position: fixed;
@@ -173,3 +170,8 @@
   background-color: #888;
   cursor: not-allowed;
 }
+
+
+
+
+

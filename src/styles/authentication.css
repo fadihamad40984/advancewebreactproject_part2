@@ -6,7 +6,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+   min-height: 100vh
 }
 .login-container {
   display: flex;
@@ -137,4 +137,34 @@ body {
 }
 .signUp-form p a:hover {
   text-decoration: underline;
+}
+
+
+
+
+
+
+
+ 
+
+@media (max-width: 480px) {
+  .login-form,
+  .signUp-form {
+    padding: 15px; 
+  }
+
+  .login-form h2,
+  .signUp-form h2 {
+    font-size: 1rem; 
+  }
+
+  .login-form form input,
+  .signUp-form form input {
+    padding: 8px; 
+  }
+
+  .login-form form button,
+  .signUp-form form button {
+    padding: 8px; 
+  }
 }

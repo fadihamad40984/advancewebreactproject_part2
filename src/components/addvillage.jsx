@@ -1,66 +1,3 @@
-/* import React, { useState, useEffect } from "react";
-import "../styles/addvillage.css"
-
-const AddVillageModal = ({ isVisible, onClose }) => {
-  const [shouldRender, setShouldRender] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  useEffect(() => {
-    if (isVisible) {
-      setShouldRender(true);
-      setTimeout(() => setIsAnimating(true), 10); 
-    } else {
-      setIsAnimating(false);
-      const timeout = setTimeout(() => setShouldRender(false), 300); 
-      return () => clearTimeout(timeout);
-    }
-  }, [isVisible]);
-
-  if (!shouldRender) return null;
-  return (
-    <div className={`modal ${isVisible ? "show" : "hide"}`}>
-      <div className="modal-content">
-        <div className="modal-header">
-          <h2>Add New Village</h2>
-          <button className="close-btn" onClick={onClose}>&times;</button>
-        </div>
-        <div class="modal-body">
-                <label for="villageNameAdd">Village Name:</label>
-                <input type="text" id="villageNameAdd" required />
-
-                <label for="regionDistrictAdd">Region/District:</label>
-                <input type="text" id="regionDistrictAdd" required />
-
-                <label for="landAreaAdd">Land Area (sq km):</label>
-                <input type="number" id="landAreaAdd" required />
-
-                <label for="latitudeAdd">Latitude:</label>
-                <input type="number" id="latitudeAdd" required />
-
-                <label for="longitudeAdd">Longitude:</label>
-                <input type="number" id="longitudeAdd" required />
-
-                <label for="uploadImageAdd">Upload Image:</label>
-                <input type="file" id="uploadImageAdd" accept="image/*" />
-
-                <label for="categoriesAdd">Categories/Tags:</label>
-                <input
-                  type="text"
-                  id="categoriesAdd"
-                  placeholder="e.g., rural, urban"
-                />
-              </div>
-        <div className="modal-footer">
-          <button id="addVillageBtn">Add Village</button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default AddVillageModal;  */
-
-
 import React, { useState, useEffect } from "react";
 import "../styles/addvillage.css"
 import { useMutation } from "@apollo/client";
@@ -91,13 +28,14 @@ const AddVillageModal = ({ isVisible, onClose }) => {
   const [shouldRender, setShouldRender] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // State variables to hold form data
   const [villageName, setVillageName] = useState("");
   const [region, setRegion] = useState("");
   const [area, setArea] = useState("");
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [tags, setTags] = useState("");
+  const [imagePath, setImagePath] = useState(null); 
+
 
   const [addVillage, { loading, error, data }] = useMutation(ADD_VILLAGE);
 
@@ -140,6 +78,19 @@ const AddVillageModal = ({ isVisible, onClose }) => {
     }
   };
 
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const image_path = '/images/'+file.name;
+      setImagePath(image_path);  
+      console.log("File name saved:", image_path);
+    }
+  };
+  
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -150,6 +101,7 @@ const AddVillageModal = ({ isVisible, onClose }) => {
       latitude: latitude ? parseFloat(latitude) : null, 
       longitude: longitude ? parseFloat(longitude) : null, 
       tags: tags || null, 
+      imagePath,
       male_population: null, 
       female_population: null,
       age_0_14: null,
@@ -229,9 +181,19 @@ const AddVillageModal = ({ isVisible, onClose }) => {
               onChange={handleChange}
             />
 
-                <label for="uploadImageAdd">Upload Image:</label>
-                <input type="file" id="uploadImageAdd" accept="image/*" />
-
+<label htmlFor="uploadImageAdd">Upload Image:</label>
+            <input
+              type="file"
+              id="uploadImageAdd"
+              accept="image/*"
+              onChange={handleImageUpload}
+            />
+            {imagePath && (
+              <div>
+                <p>Preview:</p>
+                <img src={imagePath} alt="Preview" style={{ width: "100px", height: "100px" }} />
+              </div>
+            )}
             <label htmlFor="categoriesAdd">Categories/Tags:</label>
             <input
               type="text"

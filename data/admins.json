@@ -1,37 +1,50 @@
 [
   {
-    "id": 1,
-    "name": "admin1",
-    "password": "password1",
+    "id": 13,
+    "name": "fadi",
+    "user_name": "fadi12",
+    "password": "123",
     "role": "admin",
-    "avatar": "avatar1.jpg"
+    "avatar": "/images/admin.png"
   },
   {
-    "id": 2,
-    "name": "admin2",
-    "password": "password2",
+    "id": 14,
+    "name": "mohammad",
+    "user_name": "moh12",
+    "password": "123",
     "role": "admin",
-    "avatar": "avatar2.jpg"
+    "avatar": "/images/admin.png"
   },
   {
-    "id": 3,
+    "id": 15,
     "name": "admin3",
-    "password": "password3",
+    "user_name": "admin3",
+    "password": "123",
     "role": "admin",
-    "avatar": "avatar3.jpg"
+    "avatar": "/images/admin.png"
   },
   {
-    "id": 4,
+    "id": 16,
     "name": "user1",
-    "password": "password4",
+    "user_name": "user1",
+    "password": "123",
     "role": "user",
-    "avatar": "avatar4.jpg"
+    "avatar": "/images/user.png"
   },
   {
-    "id": 5,
+    "id": 17,
     "name": "user2",
-    "password": "password5",
+    "user_name": "user2",
+    "password": "123",
     "role": "user",
-    "avatar": "avatar5.jpg"
+    "avatar": "/images/user.png"
+  },
+  {
+    "id": 18,
+    "name": "Fadi Hamad",
+    "user_name": "fadi",
+    "password": "123",
+    "role": "user",
+    "avatar": "/images/user.png"
   }
 ]

@@ -9,7 +9,6 @@ import villageData from "C:\\Users\\fadih\\React projects\\advancewebreactprojec
 
 var id;
 
-
 const UPDATE_VILLAGE = gql`
   mutation updateVillage($id: ID!, $input: VillageInput!) {
     updateVillage(id: $id, input: $input) {
@@ -44,6 +43,7 @@ const UpdateVillageModal = ({ isVisible, onClose, village, onUpdate }) => {
     const [longitude, setLongitude] = useState("");
     const [villageId, setVillageId] = useState(null);
     const [updateVillage, { loading, error, data }] = useMutation(UPDATE_VILLAGE);
+    const [imagePath, setImagePath] = useState(null); 
 
 
     
@@ -108,6 +108,16 @@ const UpdateVillageModal = ({ isVisible, onClose, village, onUpdate }) => {
   };
 
 
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const image_path = '/images/'+file.name;
+      setImagePath(image_path);  
+      console.log("File name saved:", image_path);
+    }
+  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -118,6 +128,7 @@ const UpdateVillageModal = ({ isVisible, onClose, village, onUpdate }) => {
       area: area ? parseFloat(area) : null, 
       latitude: latitude ? parseFloat(latitude) : null, 
       longitude: longitude ? parseFloat(longitude) : null, 
+      imagePath,
     };
 
     try {
@@ -205,9 +216,22 @@ const UpdateVillageModal = ({ isVisible, onClose, village, onUpdate }) => {
             <input
               type="file"
               id="uploadImageUpdate"
+              accept="image/*"
+              onChange={handleImageUpload}
+            />
+            {imagePath && (
+              <div>
+                <p>Preview:</p>
+                <img src={imagePath} alt="Preview" style={{ width: "100px", height: "100px" }} />
+              </div>
+            )}
+{/*             <label htmlFor="uploadImageUpdate">Upload Image:</label>
+            <input
+              type="file"
+              id="uploadImageUpdate"
               name="image"
               accept="image/*"
-            />
+            /> */}
           </div>
           <div className="modal-footer-update">
             <button type="submit" id="updateVillageBtn" disabled={loading}>

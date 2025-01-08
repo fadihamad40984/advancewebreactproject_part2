@@ -1,0 +1,44 @@
+advancewebreactproject_part2
+│   backend
+│   ├── db.js
+│   ├── resolvers.js
+│   ├── schema.js
+│   ├── server.js
+│   ├── syncVillages.js
+│   └── websocket.js
+│   data
+│   ├── admins.json
+│   ├── gallery.json
+│   └── villages.json
+│   src
+│   ├── components
+│   │   ├── addvillage.jsx
+│   │   ├── Dashboard.jsx
+│   │   ├── LoginForm.jsx
+│   │   ├── SignUpForm.jsx
+│   │   ├── updatedemographic.jsx
+│   │   ├── updatevillage.jsx
+│   │   └── viewvillage.jsx
+│   ├── Pages
+│   │   ├── Chat.jsx
+│   │   ├── Gallery.jsx
+│   │   ├── Overview.jsx
+│   │   └── VillageManagement.jsx
+│   ├── styles
+│   │   ├── addvillage.css
+│   │   ├── authentication.css
+│   │   ├── chat.css
+│   │   ├── dash.css
+│   │   ├── gallery.css
+│   │   ├── main.css
+│   │   ├── overview.css
+│   │   ├── updatedemographic.css
+│   │   ├── updatevillage.css
+│   │   ├── viewvillage.css
+│   │   └── villagemanagement.css
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   ├── main.jsx
+│   └── Root.jsx
+│   .env

@@ -26,7 +26,10 @@ const DELETE_VILLAGE = gql`
   const [selectedVillage, setSelectedVillage] = useState(null);
   const [showModal, setShowModal] = useState(null); 
   const [deleteVillage] = useMutation(DELETE_VILLAGE);
+    const [user, setUser] = useState(null);
   
+
+    
 
   const rowsPerPage = 4;
 
@@ -116,6 +119,36 @@ const DELETE_VILLAGE = gql`
     setSelectedVillage(null);
   };
 
+
+  useEffect(() => {
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+  }, []);
+  
+  if (!user) {
+    return (
+      <div>
+        <h2>Loading...</h2>
+      </div>
+    );
+  }
+  
+  if (user.role === "user") {
+    return (
+      <Dashboard>  
+      <div>
+      <h2>Unauthorized Access</h2>
+      <p>You do not have the necessary permissions to access this page.</p>
+    </div></Dashboard>
+
+    );
+  }
+
+  else{
+
+
   
   return (
     <Dashboard>
@@ -166,6 +199,7 @@ const DELETE_VILLAGE = gql`
       </div>
     </Dashboard>
   );
+}
 };
 
 export default VillageManagement;

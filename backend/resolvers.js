@@ -33,6 +33,7 @@ const resolvers = {
           latitude,
           longitude,
           tags,
+          imagePath,
           male_population,
           female_population,
           age_0_14,
@@ -42,8 +43,8 @@ const resolvers = {
         } = input;
 
         const [result] = await db.query(
-          `INSERT INTO villages (village_name, region, area, latitude, longitude, tags, male_population, female_population, age_0_14, age_15_64, age_65_plus, growth_rate)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          `INSERT INTO villages (village_name, region, area, latitude, longitude, tags, male_population, female_population, age_0_14, age_15_64, age_65_plus, growth_rate, image_path)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
           [
             villageName,
             region,
@@ -57,6 +58,7 @@ const resolvers = {
             age_15_64,
             age_65_plus,
             growth_rate,
+            imagePath,
           ]
         );
         loadDataFromDatabaseToJson();        
@@ -90,11 +92,12 @@ const resolvers = {
           area,
           latitude,
           longitude,
+          imagePath,
         } = input;
   
         const [result] = await db.query(
           `UPDATE villages
-           SET village_name = ?, region = ?, area = ?, latitude = ?, longitude = ?
+           SET village_name = ?, region = ?, area = ?, latitude = ?, longitude = ?, image_path = ?
           WHERE village_id = ?;`,
           [
             villageName,
@@ -102,6 +105,7 @@ const resolvers = {
             area,
             latitude,
             longitude,
+            imagePath,
             id, 
           ]
         );
@@ -188,6 +192,64 @@ const resolvers = {
         throw new Error('Failed to update village');
       }
     }, 
+
+    async addImage(_, { input }) {
+      try {
+
+        const {
+          imagePath,
+          imageDescription,
+        } = input;
+
+        const [result] = await db.query(
+          `INSERT INTO gallery (image_path, description)
+           VALUES (?, ?)`,
+          [
+            imagePath,
+            imageDescription,
+          ]
+        );
+        loadDataFromDatabaseToJson();     
+       
+        return true;
+      } catch (error) {
+        console.error('Error adding image:', error);
+        throw new Error('Failed to add image');
+      }
+    },
+
+
+    async addUser(_, { input }) {
+      try {
+        var avatar = '/images/user.png'; 
+
+        var role = 'user';
+        const {
+          name,
+          user_name,
+          password,
+        } = input;
+
+        const [result] = await db.query(
+          `INSERT INTO users (name, user_name, password, role, avatar)
+           VALUES (?, ?, ?, ?, ?)`,
+          [
+            name,
+            user_name,
+            password,
+            role,
+            avatar,
+          ]
+        );
+        loadDataFromDatabaseToJson();     
+       
+        return true;
+      } catch (error) {
+        console.error('Error adding user:', error);
+        throw new Error('Failed to add user');
+      }
+    },
+
 
   },
 };

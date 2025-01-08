@@ -1,53 +1,3 @@
-/* import { gql } from 'apollo-server';
-
-const typeDefs = gql`
-  type Village {
-    village_id: ID!
-    village_name: String!
-    region: String!
-    latitude: Float
-    longitude: Float
-    tags: String
-    population: Int
-    male_population: Int
-    female_population: Int
-    age_0_14: Int
-    age_15_64: Int
-    age_65_plus: Int
-    growth_rate: Float
-    created_at: String
-    updated_at: String
-  }
-
-  input VillageInput {
-    village_name: String!
-    region: String!
-    latitude: Float
-    longitude: Float
-    tags: String
-    population: Int
-    male_population: Int
-    female_population: Int
-    age_0_14: Int
-    age_15_64: Int
-    age_65_plus: Int
-    growth_rate: Float
-  }
-
-  type Query {
-    villages: [Village]
-    village(village_id: ID!): Village
-  }
-
-  type Mutation {
-    upsertVillage(data: VillageInput!): Village
-  }
-`;
-
-export default typeDefs; 
-
- */
-
 import { gql } from 'apollo-server';
 
 const typeDefs = gql`
@@ -67,6 +17,12 @@ type Village {
   age_65_plus: Int
   growth_rate: Float
   area: Int
+}
+
+type User {
+  name: String!
+  password: String!
+  role: String!
 }
 
 
@@ -94,6 +50,7 @@ type Village {
     latitude: Float
     longitude: Float
     tags: String
+    imagePath: String
     male_population: Int
     female_population: Int
     age_0_14: Int
@@ -123,12 +80,28 @@ type Village {
   }
 
 
+   input ImageInput{
+    imagePath: String!
+    imageDescription: String!
+   }
+
+
+
+   input userInput {
+  name: String!
+  user_name: String!
+  password: String!
+}
+
+
 
   type Mutation {
     addVillage(input: VillageInput!): Village1
     updateVillage(id: ID!, input: VillageInput!): Village1
     deleteVillage(id: ID!): Boolean
     updateDemographic(id: ID!, input: VillageInputDemographic!): Village2
+    addImage(input: ImageInput!): Boolean
+    addUser(input: userInput!): Boolean
   }
 
   type Query {

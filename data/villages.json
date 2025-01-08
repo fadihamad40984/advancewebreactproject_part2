@@ -7,6 +7,7 @@
     "latitude": 31.9522,
     "longitude": 35.2034,
     "tags": "undefined",
+    "image_path": "/images/vill2.jpeg",
     "demographic": {
       "populationSize": 100000,
       "ageDistribution": "0-14: 30%, 15-64: 60%, 65+: 10%",
@@ -22,6 +23,7 @@
     "latitude": 31.9876,
     "longitude": 35.2334,
     "tags": "undefined",
+    "image_path": "/images/vill1.avif",
     "demographic": {
       "populationSize": 120000,
       "ageDistribution": "0-14: 28%, 15-64: 62%, 65+: 10%",
@@ -37,6 +39,7 @@
     "latitude": 32.1104,
     "longitude": 35.2389,
     "tags": "undefined",
+    "image_path": "/images/vill2.jpeg",
     "demographic": {
       "populationSize": 80000,
       "ageDistribution": "0-14: 32%, 15-64: 58%, 65+: 10%",
@@ -52,6 +55,7 @@
     "latitude": 31.9511,
     "longitude": 35.2098,
     "tags": "undefined",
+    "image_path": "/images/vill1.avif",
     "demographic": {
       "populationSize": 90000,
       "ageDistribution": "0-14: 29%, 15-64: 61%, 65+: 10%",
@@ -67,6 +71,7 @@
     "latitude": 31.5291,
     "longitude": 35.0914,
     "tags": "undefined",
+    "image_path": "/images/vill2.jpeg",
     "demographic": {
       "populationSize": 150000,
       "ageDistribution": "0-14: 30%, 15-64: 60%, 65+: 10%",
@@ -82,6 +87,7 @@
     "latitude": 31.3002,
     "longitude": 34.7553,
     "tags": "undefined",
+    "image_path": "/images/vill1.avif",
     "demographic": {
       "populationSize": 110000,
       "ageDistribution": "0-14: 31%, 15-64: 59%, 65+: 10%",
@@ -97,6 +103,7 @@
     "latitude": 32.2211,
     "longitude": 35.2548,
     "tags": "undefined",
+    "image_path": "/images/vill2.jpeg",
     "demographic": {
       "populationSize": 160000,
       "ageDistribution": "0-14: 33%, 15-64: 57%, 65+: 10%",
@@ -112,6 +119,7 @@
     "latitude": 31.7054,
     "longitude": 35.2024,
     "tags": "undefined",
+    "image_path": "/images/vill1.avif",
     "demographic": {
       "populationSize": 130000,
       "ageDistribution": "0-14: 35%, 15-64: 55%, 65+: 10%",
@@ -127,6 +135,7 @@
     "latitude": 31.3545,
     "longitude": 34.2976,
     "tags": "undefined",
+    "image_path": "/images/vill2.jpeg",
     "demographic": {
       "populationSize": 140000,
       "ageDistribution": "0-14: 30%, 15-64: 60%, 65+: 10%",
@@ -142,6 +151,7 @@
     "latitude": 32.2833,
     "longitude": 35.0342,
     "tags": "undefined",
+    "image_path": "/images/vill1.avif",
     "demographic": {
       "populationSize": 100000,
       "ageDistribution": "0-14: 34%, 15-64: 56%, 65+: 10%",
@@ -157,6 +167,7 @@
     "latitude": 22.4,
     "longitude": -14.5,
     "tags": "agriculture, rural",
+    "image_path": "/images/vill2.jpeg",
     "demographic": {
       "populationSize": 100000,
       "ageDistribution": "0-14: 20%, 15-64: 60%, 65+: 20%",
@@ -172,26 +183,12 @@
     "latitude": -4,
     "longitude": -6,
     "tags": "rural",
+    "image_path": "/images/vill1.avif",
     "demographic": {
       "populationSize": 100000,
       "ageDistribution": "0-14: 20%, 15-64: 60%, 65+: 20%",
       "genderRatio": "Male: 51%, Female: 49%",
       "populationRate": 2.6
-    }
-  },
-  {
-    "villageId": 22,
-    "villageName": "Sarra",
-    "region": "nablus",
-    "landArea": 12,
-    "latitude": -1.1,
-    "longitude": 1.2,
-    "tags": "rurak",
-    "demographic": {
-      "populationSize": null,
-      "ageDistribution": "0-14: NaN%, 15-64: NaN%, 65+: NaN%",
-      "genderRatio": "Male: NaN%, Female: NaN%",
-      "populationRate": null
     }
   }
 ]

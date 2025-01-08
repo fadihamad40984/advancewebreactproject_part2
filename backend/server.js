@@ -24,6 +24,16 @@ export const loadDataFromDatabaseToJson = async () => {
   } catch (err) {
     console.error('Error loading data from database:', err);
   }
+
+
+  try {
+    const [rows2] = await db.query('SELECT * FROM gallery');
+    fs.writeFileSync('../data/gallery.json', JSON.stringify(rows2, null, 2), 'utf-8'); 
+    console.log('Data loaded from database into gallery.json');
+  } catch (err) {
+    console.error('Error loading data from database:', err);
+  }
+
   
 };
 
@@ -51,7 +61,8 @@ function transformVillageData(inputData) {
       age_15_64,
       age_65_plus,
       growth_rate,
-      area 
+      area,
+      image_path 
     } = village;
 
     const totalPopulation = population;
@@ -70,6 +81,7 @@ function transformVillageData(inputData) {
       latitude: parseFloat(latitude),
       longitude: parseFloat(longitude),
       tags,
+      image_path,
       demographic: {
         populationSize: totalPopulation,
         ageDistribution,
